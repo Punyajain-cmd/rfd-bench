@@ -1,0 +1,4 @@
+random {'test_public': {'n': 56, 'acc': 0.214, 'omni': -0.393, 'cause_and_step': 0.0}, 'test_private': {'n': 72, 'acc': 0.139, 'omni': -0.514, 'cause_and_step': 0.016}} all {'n': 128, 'acc': 0.172, 'omni': -0.461, 'cause_and_step': 0.009}
+always_abstain {'test_public': {'n': 56, 'acc': 0.143, 'omni': 0.143, 'cause_and_step': 0.0}, 'test_private': {'n': 72, 'acc': 0.111, 'omni': 0.111, 'cause_and_step': 0.0}} all {'n': 128, 'acc': 0.125, 'omni': 0.125, 'cause_and_step': 0.0}
+heuristic_rules {'test_public': {'n': 56, 'acc': 0.911, 'omni': 0.821, 'cause_and_step': 0.896}, 'test_private': {'n': 72, 'acc': 0.903, 'omni': 0.806, 'cause_and_step': 0.922}} all {'n': 128, 'acc': 0.906, 'omni': 0.812, 'cause_and_step': 0.911}
+heuristic: pairs with both twins right 56 / 56

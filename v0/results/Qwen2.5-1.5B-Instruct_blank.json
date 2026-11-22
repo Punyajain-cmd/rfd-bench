@@ -1,0 +1,23 @@
+{
+ "res": {
+  "test_public": {
+   "n": 56,
+   "acc": 0.143,
+   "omni": 0.071,
+   "cause_and_step": 0.0
+  },
+  "test_private": {
+   "n": 72,
+   "acc": 0.097,
+   "omni": 0.056,
+   "cause_and_step": 0.0
+  },
+  "all_test": {
+   "n": 128,
+   "acc": 0.117,
+   "omni": 0.062,
+   "cause_and_step": 0.0
+  }
+ },
+ "note": "Aggregate scores only. Per-row predictions are withheld, as on the Hugging Face card."
+}

@@ -1,0 +1,10 @@
+rows 288 pairs 128
+train 117 {'collision': 11, 'sim_contact_artifact': 13, 'timeout': 15, 'grasp_slip': 15, 'instruction_misread': 16, 'joint_limit': 15, 'perception_miss': 7, 'insufficient_evidence': 11, 'wrong_object': 14}
+val 43 {'sim_contact_artifact': 7, 'grasp_slip': 5, 'insufficient_evidence': 5, 'wrong_object': 3, 'perception_miss': 9, 'timeout': 5, 'joint_limit': 6, 'collision': 2, 'instruction_misread': 1}
+test_public 56 {'collision': 8, 'sim_contact_artifact': 6, 'wrong_object': 5, 'insufficient_evidence': 8, 'joint_limit': 4, 'perception_miss': 7, 'timeout': 5, 'grasp_slip': 7, 'instruction_misread': 6}
+test_private 72 {'joint_limit': 10, 'collision': 12, 'wrong_object': 8, 'sim_contact_artifact': 6, 'instruction_misread': 7, 'insufficient_evidence': 8, 'timeout': 5, 'grasp_slip': 8, 'perception_miss': 8}
+gold_label {'collision': 33, 'sim_contact_artifact': 32, 'timeout': 30, 'grasp_slip': 35, 'instruction_misread': 30, 'joint_limit': 35, 'perception_miss': 31, 'insufficient_evidence': 32, 'wrong_object': 30}
+gold_index {0: 58, 1: 58, 2: 58, 3: 57, 4: 57}
+gold_step {0: 30, 1: 61, 2: 7, 3: 28, 4: 16, 6: 8, 7: 6, 8: 29, 9: 47, 10: 18, 11: 6}
+mean text len by label {'collision': 2282, 'sim_contact_artifact': 2297, 'timeout': 2308, 'grasp_slip': 2266, 'instruction_misread': 2333, 'joint_limit': 2277, 'perception_miss': 2285, 'insufficient_evidence': 2378, 'wrong_object': 2297}
+ERRORS 0 []

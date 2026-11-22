@@ -1,0 +1,9 @@
+chance (5 options) .200
+option-only tfidf_lr 0.211
+option-only gboost(len,pos,overlap) 0.188
+always-longest-option 0.125
+always-shortest-option 0.227
+label-from-length gboost 0.18 (majority-class chance ~0.156)
+  length probe on abstain-vs-not: acc 0.914
+label-from-instruction-only tfidf_lr 0.102
+evidence-bag-of-words tfidf_lr (reference, uses log) 0.219

@@ -1,0 +1,39 @@
+== VALIDATION
+episodes 144 labels 144 valid labels 144
+unique ids True
+groups spanning splits 0 families spanning splits 0
+forbidden tokens in prompts 0 in frame paths 0
+obs length set {40} prompt chars min/max 3157 3633
+NA cells per class (mean,min,max): {'no_failure': (np.float64(80.4), 80, 81), 'low_friction': (np.float64(80.4), 80, 81), 'heavy_payload': (np.float64(80.6), 80, 81), 'weak_actuator': (np.float64(80.6), 80, 81), 'hidden_obstacle': (np.float64(80.2), 80, 81), 'encoder_bias': (np.float64(80.3), 80, 81), 'insufficient_evidence': (np.float64(80.0), 80, 80)}
+mask x abstain: Counter({('B', False): 46, ('C', False): 36, ('A', True): 36, ('A', False): 26})
+label x split: {('val', 'no_failure'): 2, ('val', 'low_friction'): 2, ('val', 'heavy_payload'): 2, ('val', 'weak_actuator'): 2, ('val', 'hidden_obstacle'): 2, ('val', 'encoder_bias'): 2, ('val', 'insufficient_evidence'): 4, ('train', 'no_failure'): 8, ('train', 'low_friction'): 8, ('train', 'heavy_payload'): 8, ('train', 'weak_actuator'): 8, ('train', 'hidden_obstacle'): 8, ('train', 'encoder_bias'): 8, ('train', 'insufficient_evidence'): 16, ('test_public', 'no_failure'): 4, ('test_public', 'low_friction'): 4, ('test_public', 'heavy_payload'): 4, ('test_public', 'weak_actuator'): 4, ('test_public', 'hidden_obstacle'): 4, ('test_public', 'encoder_bias'): 4, ('test_public', 'insufficient_evidence'): 8, ('test_private', 'no_failure'): 4, ('test_private', 'low_friction'): 4, ('test_private', 'heavy_payload'): 4, ('test_private', 'weak_actuator'): 4, ('test_private', 'hidden_obstacle'): 4, ('test_private', 'encoder_bias'): 4, ('test_private', 'insufficient_evidence'): 8}
+gold_index dist: [(0, 21), (1, 21), (2, 21), (3, 21), (4, 20), (5, 20), (6, 20)]
+check pass rates: {'nominal_success': '144/144', 'control_success': '144/18', 'faulted_fails': '144/126', 'repair_primary_succeeds': '144/126', 'remove_distractor_still_fails': '144/101'}
+distractor present (non-control): 113
+abstain pairs: max |visible diff| heavy vs weak per group: median 1.0 max 1.0
+manifest files 724
+
+== PROBES (fit train+val, eval test_public / test_private)
+majority gold_index acc pub 0.125
+majority gold_index acc priv 0.125
+options-only TFIDF-LR gold_index acc pub 0.125 (chance 1/7=.143)
+options-only TFIDF-LR gold_index acc priv 0.125 (chance 1/7=.143)
+length/missingness GB abstain acc pub 0.781 majority 0.75
+length/missingness GB abstain acc priv 0.75 majority 0.75
+length/missingness GB 7-way label acc pub 0.344
+length/missingness GB 7-way label acc priv 0.406
+gold-step-only GB cause acc (answerable test, oracle step leak upper bound) 0.375 n 40
+telemetry-feature GB (full evidence) label acc pub 0.969
+telemetry-feature GB (full evidence) label acc priv 0.969
+
+== BASELINES (scored on test_public+test_private; omni=+1 right, -1 wrong, 0 abstain)
+always-abstain: n=64 acc=0.250 answerable_acc=0.000 abstain_recall=1.000 omni=0.250 cause+step(±1)=0.000
+uniform-random: n=64 acc=0.156 answerable_acc=0.188 abstain_recall=0.062 omni=-0.594 cause+step(±1)=0.021
+rule (full evidence): n=64 acc=0.922 answerable_acc=0.896 abstain_recall=1.000 omni=0.859 cause+step(±1)=0.271
+rule (blank evidence): n=64 acc=0.250 answerable_acc=0.000 abstain_recall=1.000 omni=0.250 cause+step(±1)=0.000
+rule (evidence swapped from another row): n=64 acc=0.141 answerable_acc=0.021 abstain_recall=0.500 omni=-0.578 cause+step(±1)=0.000
+rule per-gold confusion: {('no_failure', 'no_failure'): 8, ('low_friction', 'low_friction'): 8, ('heavy_payload', 'heavy_payload'): 7, ('weak_actuator', 'weak_actuator'): 8, ('hidden_obstacle', 'hidden_obstacle'): 5, ('encoder_bias', 'encoder_bias'): 7, ('insufficient_evidence', 'insufficient_evidence'): 16, ('hidden_obstacle', 'heavy_payload'): 3, ('encoder_bias', 'hidden_obstacle'): 1, ('heavy_payload', 'insufficient_evidence'): 1}
+
+== ABSTAIN INDISTINGUISHABILITY CHECK
+abstain rows n=36: leave-group-out LR (block displacement, contact fraction) recovers hidden heavy-vs-weak cause acc=0.722 (chance .5)
+block displacement heavy median=0.0017 m, weak median=0.0089 m
